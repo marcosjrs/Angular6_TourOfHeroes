@@ -1,0 +1,14 @@
+<div class="container">
+
+    <h3>Lista de Superheroes</h3>
+    <ul class="list-group" >
+      <li class="list-group-item  list-group-item-action" *ngFor="let h of heroes" 
+        [class.active]="h.id == hero?.id" (click)="selectHero(h)">
+        <div><span>#{{h.id}} |</span> {{h.name}}</div>
+      </li>
+    </ul>
+
+    <app-hero-detail [hero]="hero"></app-hero-detail>
+    <app-messages></app-messages>
+
+</div>

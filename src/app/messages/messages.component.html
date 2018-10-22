@@ -1,0 +1,10 @@
+<div *ngIf="msgSvc.messages" class="card mt-4">
+    <div class="card-body">
+      <h5 class="card-title">Log <a href="#" class="card-link small float-right" (click)="clear()">Limpiar</a></h5>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let msg of msgSvc.messages">
+          {{msg}}
+        </li>
+      </ul>
+    </div>
+  </div>
