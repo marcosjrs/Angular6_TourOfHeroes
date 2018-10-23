@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../model/Hero';
-import {HEROES} from '../fixtures/heroes';
 import { HeroService } from '../services/hero.service';
 
-
 @Component({
-  selector: 'app-heroes',
-  templateUrl: './heroes.component.html',
-  styleUrls: ['./heroes.component.css']
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
 })
-export class HeroesComponent implements OnInit {
+export class DashboardComponent implements OnInit {
   hero:Hero;
   heroes:Hero[];
 
@@ -25,6 +23,10 @@ export class HeroesComponent implements OnInit {
       heroes=>this.heroes=heroes,
       err => console.log(err)
     );
+  }
+
+  selectHero(hero:Hero){
+    this.hero = hero;
   }
 
 }

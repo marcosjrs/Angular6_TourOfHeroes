@@ -1,4 +1,9 @@
-<div *ngIf="hero" class="card mt-4">
+
+<div><button type="button" style="float: left;" class="btn btn-outline-secondary btn-sm ml-3 mt-3" (click)="goBack()"> < </button></div>
+<div class="clearfix"></div>
+<div class="container">  
+  <div><h4>INFORMACIÓN</h4></div>
+  <div *ngIf="hero" class="card mt-4">
     <div class="card-body">
       <h5 class="card-title">{{hero.name | uppercase}}</h5>
       <div class="form-group row mt-4">
@@ -13,9 +18,6 @@
           <input class="form-control" id="inputName" [(ngModel)]="hero.name" #name>
         </div>
       </div>
-      <p>
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
-      </p>
     </div>
   </div>
+</div>

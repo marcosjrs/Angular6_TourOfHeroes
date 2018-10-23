@@ -1,0 +1,8 @@
+
+<div class="container clearfix" *ngIf="heroes">
+  <div class="dashboard-container-heroes">
+    <div *ngFor="let h of heroes" class="dashboard-hero" >
+      <div class="dashboard-hero-text"><a routerLink="/detail/{{h.id}}">{{h.name}}</a></div>
+    </div>
+  </div>
+</div>
