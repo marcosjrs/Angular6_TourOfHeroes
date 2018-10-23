@@ -1,12 +1,21 @@
 <div class="container">
 
-    <h3>Lista de Superheroes</h3>
-    <ul class="list-group" >
-      <li class="list-group-item  list-group-item-action" *ngFor="let h of heroes" 
-        [class.active]="h.id == hero?.id">
-        <a routerLink="/detail/{{h.id}}"><span>#{{h.id}} |</span> {{h.name}}</a>
-      </li>
-    </ul>
+  <h3>Lista de Superheroes</h3>
+  <ul class="list-group">
+    <li class="list-group-item  list-group-item-action" *ngFor="let h of heroes" [class.active]="h.id == hero?.id">
+      <div class="row">
+        <div class="col-8"><a routerLink="/detail/{{h.id}}"><span>#{{h.id}} |</span> {{h.name}}</a></div>
+        <div class="col-4 text-right"><button class="btn btn-outline-danger" (click)="delete(h)"> <i class="fas fa-trash-alt"></i></button></div>
+      </div>
+    </li>
+  </ul>
+
+  <div class="input-group my-3">
+    <input type="text" class="form-control" #heroName placeholder="Nombre del nuevo heroe" aria-label="">
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" (click)="add(heroName.value); heroName.value=''" type="button">Añadir</button>
+    </div>
+  </div>
 
 
 </div>
