@@ -1,0 +1,15 @@
+<div class="card mt-4">
+  <div class=" card-body">
+    <form class="form-inline">
+      <div class="form-group">
+        <div for="searchBox">Nombre a buscar: &nbsp;</div>
+        <input class="form-control col" (keyup)="search(searchBox.value)" id="searchBox" #searchBox placeholder="Nombre del heroe">
+      </div>
+    </form>
+    <ul class="list-group mt-4" *ngFor="let hero of heroes$ | async">
+      <li class="list-group-item">
+        <a routerLink="/detail/{{hero.id}}">{{hero.name}}</a>
+      </li>
+    </ul>
+  </div>
+</div>

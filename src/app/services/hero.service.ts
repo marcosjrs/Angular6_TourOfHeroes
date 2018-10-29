@@ -74,5 +74,21 @@ export class HeroService {
       catchError(this.handleError<Hero>('deleteHero'))
     );
   }
+
+  /* 
+  * Busqueda por nombre.
+  * Devuelve un Observable de Heroes.
+  */
+  searchHeroes(name: string): Observable<Hero[]> {
+    if (!name.trim()) {
+      // Si no se le pasa nombre devolverá un array vacio (en realidad un observable con array vacio)
+      return of([]);
+    }
+    return this.http.get<Hero[]>(`${this.heroesUrl}/?name=${name}`).pipe(
+      tap(_ => this.msgSvc.add(`Encontrado heroe con nombre "${name}"`)),
+      catchError(this.handleError<Hero[]>('searchHeroes', []))
+    );
+  }
+
   
 }
